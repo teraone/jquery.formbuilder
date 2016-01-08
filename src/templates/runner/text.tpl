@@ -1,4 +1,4 @@
 <li>
   <label for="{id}">{label}</label>
-  <input type="email" name="{id}" id="{id}" value="{value}" placeholder=""{?required} required{/required}/>
+  <input type="text" name="{id}" id="{id}" value="{value}" placeholder=""{?required} required{/required}/>
 </li>
