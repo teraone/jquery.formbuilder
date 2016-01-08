@@ -108,6 +108,15 @@
             selected: false,
             label: ''
           }
+        },{
+          key: 'checkbox-choices',
+          label: 'Single Checkbox',
+          schema: {
+            name: false,
+            fbid: false,
+            label: '',
+            required: false
+          }
         }
       ]
     };

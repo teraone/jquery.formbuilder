@@ -141,6 +141,8 @@ Formrunner.prototype = {
     if (self._opts.values[frmObj.id] !== undefined)
     {
       frmObj.value = self._opts.values[frmObj.id];
+      // case obj is selectable
+      frmObj.selected = self._opts.values[frmObj.id];
     }
 
     // Load and render the html template for the form
