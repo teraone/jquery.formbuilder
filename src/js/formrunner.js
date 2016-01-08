@@ -156,8 +156,10 @@ Formrunner.prototype = {
         $.each(model.choices,function(key,choice){
 
           // set unique id
-          choice.id   = self.fieldNameToId( model.fbid + '_' + key );
-          choice.name = self.fieldNameToId(model.label);
+          choice.id       = self.fieldNameToId( model.fbid + '_' + key );
+          choice.name     = self.fieldNameToId(model.label);
+          choice.value    = '&nbsp;';       // set value as a space to fit required check
+          choice.required = model.required; // pass required property to add attribute in choices
 
           // set value
           if (self._opts.values[choice.id] !== undefined)
