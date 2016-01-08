@@ -147,9 +147,9 @@ Formrunner.prototype = {
     dust.render(model.type, frmObj, function(err, out){
 
       // Set base template
-      self._opts.targets.find('form>ul').append( out );
+      self._opts.targets.find('.frmb-form>ul').append( out );
 
-      var lastLi = self._opts.targets.find('form>ul>li:last-child');
+      var lastLi = self._opts.targets.find('.frmb-form>ul>li:last-child');
 
       // Build choices
       if( model.choices !== undefined && model.choices.length > 0 ){
