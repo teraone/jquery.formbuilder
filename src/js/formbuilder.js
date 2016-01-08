@@ -47,7 +47,7 @@
       field_types: [
         {
           key: 'text',
-          label: 'Text',
+          label: 'Texte',
           schema: {
             name: false,
             fbid: false,
@@ -56,7 +56,7 @@
           }
         },{
           key: 'textarea',
-          label: 'Textarea',
+          label: 'Zone de texte',
           schema: {
             name: false,
             fbid: false,
@@ -64,8 +64,19 @@
             required: false
           }
         },{
+          key : 'checkbox-choices',
+          label : 'Case à cocher',
+          allowsSelection : true,
+          schema: {
+            name: false,
+            fbid: false,
+            label: '',
+            required: false,
+            selected: false
+          }
+        },{
           key: 'select',
-          label: 'Select',
+          label: 'Liste déroulante',
           template: 'choices',
           schema: {
             name: false,
@@ -80,7 +91,7 @@
           }
         },{
           key: 'radio',
-          label: 'Radio',
+          label: 'Groupe à choix unique',
           template: 'choices',
           schema: {
             name: false,
@@ -95,7 +106,7 @@
           }
         },{
           key: 'checkbox',
-          label: 'Checkbox',
+          label: 'Groupe à choix multiple',
           template: 'choices',
           schema: {
             name: false,
@@ -107,17 +118,6 @@
           choiceSchema: {
             selected: false,
             label: ''
-          }
-        },{
-          key             : 'checkbox-choices',
-          label           : 'Single Checkbox',
-          allowsSelection : true,
-          schema: {
-            name: false,
-            fbid: false,
-            label: '',
-            required: false,
-            selected: false
           }
         }
       ]
