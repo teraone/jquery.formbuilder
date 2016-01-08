@@ -545,6 +545,16 @@
         form_id: this._opts.form_id,
         model: this._model
       });
+    },
+
+    /**
+     * prevent all submitable elements in the form to be submitted
+     *
+     * @method     preventSubmit
+     */
+    preventSubmit: function()
+    {
+      this._opts.targets.find('input').prop('disabled',true);
     }
   };
 

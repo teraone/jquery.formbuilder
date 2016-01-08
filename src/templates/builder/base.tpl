@@ -1,6 +1,6 @@
 <div class="frmb-form">
   <div>
-    <select class="frmb-add-elem" name="frmb-add-elem" id="frmb-add-elem">
+    <select class="frmb-add-elem" id="frmb-add-elem">
       <option value="">Add new field...</option>
       {#field_types}
       <option value="{key}">{label}</option>

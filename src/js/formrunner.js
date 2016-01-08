@@ -195,11 +195,17 @@ Formrunner.prototype = {
     return name.toLowerCase().replace(/ /g,'-').replace(/[^a-zA-Z0-9_.-]/g, '');
   },
 
+  /**
+   * get all submittable elements values
+   *
+   * @method     getData
+   * @return     {object}  id => value
+   */
   getData: function()
   {
     var self  = this;
     var data  = {};
-    var parts = self._opts.targets.find('input, option, textarea');
+    var parts = this.getSubmittableElements();
 
     // loop parts
     parts.each(function()
@@ -225,5 +231,20 @@ Formrunner.prototype = {
     });
 
     return data;
+  },
+
+  getSubmittableElements: function()
+  {
+    return this._opts.targets.find('input, option, textarea');
+  },
+
+  /**
+   * prevent all submitable elements in the form to be submitted
+   *
+   * @method     preventSubmit
+   */
+  preventSubmit: function()
+  {
+    this.getSubmittableElements().prop('disabled',true);
   }
 };
