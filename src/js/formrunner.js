@@ -134,8 +134,11 @@ Formrunner.prototype = {
       // set unique id
       id: self.fieldNameToId(model.fbid),
       label: model.label,
-      required: model.required
+      required: model.required,
+      selected: model.selected
     };
+
+    console.log('obj', frmObj);
 
     // set value
     if (self._opts.values[frmObj.id] !== undefined)

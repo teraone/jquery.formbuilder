@@ -109,13 +109,15 @@
             label: ''
           }
         },{
-          key: 'checkbox-choices',
-          label: 'Single Checkbox',
+          key             : 'checkbox-choices',
+          label           : 'Single Checkbox',
+          allowsSelection : true,
           schema: {
             name: false,
             fbid: false,
             label: '',
-            required: false
+            required: false,
+            selected: false
           }
         }
       ]

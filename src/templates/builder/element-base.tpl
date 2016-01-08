@@ -4,6 +4,10 @@
   <input type="text" value="{model.label}" placeholder="ex: First Name" name="{fbid}_label" id="{fbid}_label" required>
   <label for="{fbid}_required">Required?</label>
   <input type="checkbox" value="1" {?model.required}checked="checked"{/model.required} name="{fbid}_required" id="{fbid}_required">
+  {?allowsSelection}
+  <label for="{fbid}_selected">Selected?</label>
+  <input type="checkbox" value="1" {?model.selected}checked="checked"{/model.selected} name="{fbid}_selected" id="{fbid}_selected">
+  {/allowsSelection}
   <a href="#" class="frmb-remove">Remove</a>
   {?allowsChoices}
   <a href="#" class="frmb-add-choice">Add Choice</a>
