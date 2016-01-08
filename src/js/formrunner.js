@@ -141,7 +141,7 @@ Formrunner.prototype = {
     console.log('obj', frmObj);
 
     // set value
-    if (self._opts.values[frmObj.id] !== undefined)
+    if (self._opts.values && self._opts.values[frmObj.id] !== undefined)
     {
       frmObj.value = self._opts.values[frmObj.id];
       // case obj is selectable
@@ -167,7 +167,7 @@ Formrunner.prototype = {
           choice.required = model.required; // pass required property to add attribute in choices
 
           // set value
-          if (self._opts.values[choice.id] !== undefined)
+          if (self._opts.values && self._opts.values[choice.id] !== undefined) 
           {
             choice.selected = self._opts.values[choice.id];
           }
