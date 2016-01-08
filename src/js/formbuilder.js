@@ -427,7 +427,7 @@
           };
 
           // new index
-          index = (typeof index === 'number') ? index : parentModel.choices.length;
+          index = (typeof index === 'number') ? index : parentModel.choices.length - 1;
           bodyObj.fbid += '_choices.'+index;
 
           dust.render(field.template, bodyObj, function(err, out){
