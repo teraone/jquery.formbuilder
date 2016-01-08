@@ -24,6 +24,9 @@ var Formrunner = function(opts){
     // A dom-lib wrapped element
     targets: false,
 
+    // injected values to fill the form on init
+    values: {},
+
     // URL to submit form results to
     action: '',
 
@@ -125,12 +128,20 @@ Formrunner.prototype = {
 
     var self = this;
 
+
     // Pass data to the template
     var frmObj = {
-      id: self.fieldNameToId(model.label),
+      // set unique id
+      id: self.fieldNameToId(model.fbid),
       label: model.label,
       required: model.required
     };
+
+    // set value
+    if (self._opts.values[frmObj.id] !== undefined)
+    {
+      frmObj.value = self._opts.values[frmObj.id];
+    }
 
     // Load and render the html template for the form
     dust.render(model.type, frmObj, function(err, out){
@@ -144,8 +155,15 @@ Formrunner.prototype = {
       if( model.choices !== undefined && model.choices.length > 0 ){
         $.each(model.choices,function(key,choice){
 
-          choice.id = self.fieldNameToId( choice.label );
+          // set unique id
+          choice.id = self.fieldNameToId( model.fbid + '_' + choice.label );
           choice.name = self.fieldNameToId(model.label);
+
+          // set value
+          if (self._opts.values[choice.id] !== undefined)
+          {
+            choice.selected = self._opts.values[choice.id];
+          }
 
           // Load choice template
           dust.render(model.type+'-choices', choice, function(err, out){
@@ -168,5 +186,37 @@ Formrunner.prototype = {
    */
   fieldNameToId: function( name ){
     return name.toLowerCase().replace(/ /g,'-').replace(/[^a-zA-Z0-9_.-]/g, '');
+  },
+
+  getData: function()
+  {
+    var self  = this;
+    var data  = {};
+    var parts = self._opts.targets.find('input, option, textarea');
+
+    // loop parts
+    parts.each(function()
+    {
+      var jqElement = $(this);
+      var val;
+
+      if (jqElement.attr('type') === 'checkbox')
+      {
+        val = jqElement.prop('checked');
+      }
+      else if (jqElement.prop('tagName').toLowerCase() === 'option' || jqElement.attr('type') === 'radio')
+      {
+        val = jqElement.prop('selected');
+      }
+      else
+      {
+        val = jqElement.val();
+      }
+
+      // store value with id as key
+      data[this.id] = val;
+    });
+
+    return data;
   }
 };
