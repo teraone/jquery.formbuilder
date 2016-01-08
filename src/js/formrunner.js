@@ -156,7 +156,7 @@ Formrunner.prototype = {
         $.each(model.choices,function(key,choice){
 
           // set unique id
-          choice.id = self.fieldNameToId( model.fbid + '_' + choice.label );
+          choice.id   = self.fieldNameToId( model.fbid + '_' + key );
           choice.name = self.fieldNameToId(model.label);
 
           // set value
