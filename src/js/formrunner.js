@@ -200,7 +200,7 @@ Formrunner.prototype = {
       var jqElement = $(this);
       var val;
 
-      if (jqElement.attr('type') === 'checkbox')
+      if (jqElement.attr('type') === 'checkbox' || jqElement.attr('type') === 'radio')
       {
         val = jqElement.prop('checked');
       }
