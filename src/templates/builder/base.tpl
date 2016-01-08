@@ -1,4 +1,4 @@
-<form class="frmb-form" role="form">
+<div class="frmb-form">
   <div>
     <select class="frmb-add-elem" name="frmb-add-elem" id="frmb-add-elem">
       <option value="">Add new field...</option>
@@ -9,5 +9,5 @@
   </div>
   <ul>
   </ul>
-  <button type="submit" class="frmb-save">Save</button>
-</form>
+  <!-- <button type="submit" class="frmb-save">Save</button> -->
+</div>

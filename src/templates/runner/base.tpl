@@ -1,5 +1,5 @@
-<form id="{form_id}" class="frmb-form" role="form" action="{action}" method="{method}">
+<div id="{form_id}" class="frmb-form">
   <ul>
   </ul>
-  <button type="submit" class="frmb-save">Submit</button>
-</form>
+  <!-- <button type="submit" class="frmb-save">Submit</button> -->
+</div>
