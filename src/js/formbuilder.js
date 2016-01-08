@@ -456,7 +456,9 @@
       // Special handling for choice
       if( type === 'choices' ){
 
-        var index = parseInt(path[1],10) - 1;
+        // var index = parseInt(path[1],10) - 1;
+        // fix bug: cannot understand why - 1
+        var index = parseInt(path[1],10);
 
         // verify field is in schema
         if( this._model[id][type][index][path[2]] === undefined  ){
