@@ -246,8 +246,18 @@ Formrunner.prototype = {
    *
    * @method     preventSubmit
    */
+  disable: function()
+  {
+    this._opts.targets.find('input').prop('disabled',true);
+  },
+
+  /**
+   * prevent all submitable elements in the form to be submitted
+   *
+   * @method     preventSubmit
+   */
   preventSubmit: function()
   {
-    this.getSubmittableElements().prop('disabled',true);
+    this._opts.targets.find('input').prop('name','');
   }
 };
