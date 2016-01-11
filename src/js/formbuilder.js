@@ -43,6 +43,9 @@
       // Customizable base for templates
       templateBasePath: 'templates/builder',
 
+      // prefix added before template file name
+      templatePrefix: 'builder-',
+
       // Description of allowed field types
       field_types: [
         {
@@ -290,7 +293,7 @@
         field_types: this._opts.field_types
       };
 
-      dust.render('base', frmObj, function(err, out) {
+      dust.render(self._opts.templatePrefix + 'base', frmObj, function(err, out) {
 
         // Append final content
         self._opts.targets.append( out );
@@ -353,7 +356,7 @@
       bodyObj = $.extend(true, {}, bodyObj,field);
 
       // Render base element (all fields need these base values)
-      dust.render('element-base', bodyObj, function(err, out){
+      dust.render(self._opts.templatePrefix + 'element-base', bodyObj, function(err, out){
 
         var elem = $(out);
 
@@ -411,6 +414,8 @@
      */
     appendFieldToFormElementEditor: function( frmb_group, field, parentModel, existingModel, index ){
 
+      var self = this;
+
       // load additional details template
       if( field.template !== undefined ){
 
@@ -432,7 +437,7 @@
           index = (typeof index === 'number') ? index : parentModel.choices.length - 1;
           bodyObj.fbid += '_choices.'+index;
 
-          dust.render(field.template, bodyObj, function(err, out){
+          dust.render(self._opts.templatePrefix + field.template, bodyObj, function(err, out){
             frmb_group.find('.frmb-choices').append( out );
           });
         }

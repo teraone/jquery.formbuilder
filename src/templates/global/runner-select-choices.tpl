@@ -1,0 +1,1 @@
+<option id="{id}" value="{value}"{?selected} selected{/selected}>{label}</option>

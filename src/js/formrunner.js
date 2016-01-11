@@ -34,12 +34,17 @@ var Formrunner = function(opts){
     method: 'POST',
 
     // Customizable base for templates
-    templateBasePath: 'templates/runner'
+    templateBasePath: 'templates/runner',
+
+    // prefix added before template file name
+    templatePrefix: 'runner-'
 
   };
 
   var _privateSelf = this;
   this._opts = $.extend(true, {}, defaultOptions,opts);
+
+  // TODO: fix bug here (multiple instance case)
 
   // Dynamically load templates
   if( dust.onLoad === undefined ){
@@ -104,7 +109,7 @@ Formrunner.prototype = {
     };
 
     // Load base form template
-    dust.render('base', frmObj, function(err, out) {
+    dust.render(self._opts.templatePrefix + 'base', frmObj, function(err, out) {
 
       // Append content
       self._opts.targets.append( out );
@@ -138,8 +143,6 @@ Formrunner.prototype = {
       selected: model.selected
     };
 
-    console.log('obj', frmObj);
-
     // set value
     if (self._opts.values && self._opts.values[frmObj.id] !== undefined)
     {
@@ -149,7 +152,7 @@ Formrunner.prototype = {
     }
 
     // Load and render the html template for the form
-    dust.render(model.type, frmObj, function(err, out){
+    dust.render(self._opts.templatePrefix + model.type, frmObj, function(err, out){
 
       // Set base template
       self._opts.targets.find('.frmb-form>ul').append( out );
@@ -173,7 +176,7 @@ Formrunner.prototype = {
           }
 
           // Load choice template
-          dust.render(model.type+'-choices', choice, function(err, out){
+          dust.render(self._opts.templatePrefix + model.type + '-choices', choice, function(err, out){
 
             if( model.type === 'select' ){
               lastLi.find('select').append(out);
