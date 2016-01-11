@@ -553,13 +553,24 @@
     },
 
     /**
-     * prevent all submitable elements in the form to be submitted
+     * get all submitable elements created
      *
-     * @method     preventSubmit
+     * @method     getSubmittableElements
+     * @return     {JQobject}  JQuery selection object
+     */
+    getSubmittableElements: function()
+    {
+      return this._opts.targets.find('input, option, textarea');
+    },
+
+    /**
+     * disable all submittable elements
+     *
+     * @method     disable
      */
     disable: function()
     {
-      this._opts.targets.find('input').prop('disabled',true);
+      this.getSubmittableElements().prop('disabled',true);
     },
 
     /**
@@ -569,7 +580,7 @@
      */
     preventSubmit: function()
     {
-      this._opts.targets.find('input').prop('name','');
+      this.getSubmittableElements().prop('name','');
     }
   };
 

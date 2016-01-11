@@ -236,19 +236,25 @@ Formrunner.prototype = {
     return data;
   },
 
+  /**
+   * get all submitable elements created
+   *
+   * @method     getSubmittableElements
+   * @return     {JQobject}  JQuery selection object
+   */
   getSubmittableElements: function()
   {
     return this._opts.targets.find('input, option, textarea');
   },
 
   /**
-   * prevent all submitable elements in the form to be submitted
+   * disable all submittable elements
    *
-   * @method     preventSubmit
+   * @method     disable
    */
   disable: function()
   {
-    this._opts.targets.find('input').prop('disabled',true);
+    this.getSubmittableElements().prop('disabled',true);
   },
 
   /**
@@ -258,6 +264,6 @@ Formrunner.prototype = {
    */
   preventSubmit: function()
   {
-    this._opts.targets.find('input').prop('name','');
+    this.getSubmittableElements().prop('name','');
   }
 };
