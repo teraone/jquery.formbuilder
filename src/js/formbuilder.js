@@ -50,7 +50,7 @@
       field_types: [
         {
           key: 'text',
-          label: 'Texte',
+          label: 'Text',
           schema: {
             name: false,
             fbid: false,
@@ -59,7 +59,7 @@
           }
         },{
           key: 'textarea',
-          label: 'Zone de texte',
+          label: 'Textarea',
           schema: {
             name: false,
             fbid: false,
@@ -68,7 +68,7 @@
           }
         },{
           key : 'checkbox-choices',
-          label : 'Case à cocher',
+          label : 'Single Checkbox',
           allowsSelection : true,
           schema: {
             name: false,
@@ -79,7 +79,7 @@
           }
         },{
           key: 'select',
-          label: 'Liste déroulante',
+          label: 'Select Dropdown',
           template: 'choices',
           schema: {
             name: false,
@@ -94,7 +94,7 @@
           }
         },{
           key: 'radio',
-          label: 'Groupe à choix unique',
+          label: 'Radio',
           template: 'choices',
           schema: {
             name: false,
@@ -109,7 +109,7 @@
           }
         },{
           key: 'checkbox',
-          label: 'Groupe à choix multiple',
+          label: 'Checkbox multiple',
           template: 'choices',
           schema: {
             name: false,
